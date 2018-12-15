@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.ionia.btckit.model.Pair;
 import com.ionia.btckit.repository.PairRepository;
 import com.ionia.btckit.service.PairService;
+import com.ionia.btckit.service.PairServiceException;
 
 @Service("schedulerService")
 public class SchedulerServiceImpl implements SchedulerService {
@@ -24,6 +25,11 @@ public class SchedulerServiceImpl implements SchedulerService {
 			pair.setBalance(pairService.getBalanceValue(pair.getPublicAddress()));
 		}
 		pairRepository.saveAll(pairList);
+	}
+
+	@Override
+	public void generatePair() throws PairServiceException {
+		pairService.createPair();
 	}
 
 	@Autowired

@@ -1,5 +1,8 @@
 package com.ionia.btckit.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +33,19 @@ public class PairController {
 			log.error(ex.getMessage(), ex);
 		}
 		return null;
+	}
+
+	@RequestMapping(value = "/createPairList", method = RequestMethod.GET, produces = { "application/json" })
+	public @ResponseBody List<Pair> createPairList(@RequestParam("size") int size) {
+		List<Pair> list = new ArrayList<>();
+		try {
+			for (int i = 0; i < size; i++) {
+				list.add(pairService.createPair());
+			}
+		} catch (PairServiceException ex) {
+			log.error(ex.getMessage(), ex);
+		}
+		return list;
 	}
 
 	@RequestMapping(value = "/getBalance", method = RequestMethod.GET, produces = { "application/json" })
