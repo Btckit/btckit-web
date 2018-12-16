@@ -51,7 +51,7 @@ public class PairController {
 	@RequestMapping(value = "/getBalance", method = RequestMethod.GET, produces = { "application/json" })
 	public @ResponseBody Pair getBalance(@RequestParam("publicAddress") String publicAddress) {
 		try {
-			return pairService.getBalance(publicAddress);
+			return pairService.getPairWithBalance(publicAddress);
 		} catch (PairServiceException ex) {
 			log.error(ex.getMessage(), ex);
 		}

@@ -11,8 +11,8 @@ public interface PairService {
 
 	public Pair savePair(Pair pair);
 
-	public Pair getBalance(String publicAddress) throws PairServiceException;
+	public Pair getPairWithBalance(String publicAddress) throws PairServiceException;
 
-	public BigDecimal getBalanceValue(String publicAddress) throws IOException;
+	public BigDecimal getBalance(String publicAddress) throws IOException;
 
 }

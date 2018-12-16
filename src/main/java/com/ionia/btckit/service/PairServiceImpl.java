@@ -10,6 +10,8 @@ import java.util.Optional;
 import org.bitcoinj.core.Address;
 import org.bitcoinj.core.ECKey;
 import org.bitcoinj.params.MainNetParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,6 +22,8 @@ import com.ionia.btckit.repository.PairRepository;
 
 @Service("pairService")
 public class PairServiceImpl implements PairService {
+	
+	private static final Logger log = LoggerFactory.getLogger(PairServiceImpl.class);
 
 	private PairRepository pairRepository;
 
@@ -36,9 +40,9 @@ public class PairServiceImpl implements PairService {
 		pair.setPrivateKey(key.getPrivateKeyAsWiF(MainNetParams.get()));
 
 		try {
-			pair.setBalance(getBalanceValue(pair.getPublicAddress()));
+			pair.setBalance(getBalance(pair.getPublicAddress()));
 		} catch (IOException e) {
-			pair.setBalance(null);
+			log.error(pair.getPublicAddress().concat(" failed."));
 		}
 
 		return savePair(pair);
@@ -50,7 +54,7 @@ public class PairServiceImpl implements PairService {
 	}
 
 	@Override
-	public Pair getBalance(String publicAddress) throws PairServiceException {
+	public Pair getPairWithBalance(String publicAddress) throws PairServiceException {
 		Optional<Pair> pairOpt = pairRepository.findById(publicAddress);
 		Pair pair = null;
 		if (pairOpt.isPresent()) {
@@ -61,7 +65,7 @@ public class PairServiceImpl implements PairService {
 		}
 
 		try {
-			pair.setBalance(getBalanceValue(publicAddress));
+			pair.setBalance(getBalance(publicAddress));
 		} catch (IOException ex) {
 			throw new PairServiceException(ex);
 		}
@@ -70,7 +74,7 @@ public class PairServiceImpl implements PairService {
 	}
 
 	@Override
-	public BigDecimal getBalanceValue(String publicAddress) throws IOException {
+	public BigDecimal getBalance(String publicAddress) throws IOException {
 		String url = getBalanceCheckUrl(publicAddress);
 		String balance;
 		balance = readUrl(url);
