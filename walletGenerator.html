@@ -4,10 +4,10 @@
 <head>
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<script>
-	  (adsbygoogle = window.adsbygoogle || []).push({
-	    google_ad_client: "ca-pub-9759253183767741",
-	    enable_page_level_ads: true
-	  });
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-9759253183767741",
+			enable_page_level_ads: true
+		});
 	</script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132857976-2"></script>
 	<script>
@@ -37,20 +37,37 @@
 		<div id="header"></div>
 
 		<div class="row m-3">
+			<hr class="my-1">
 			<div class="col-md-12">
 				<div class="card m-1">
 					<div class="card-body">
-						<h5 class="card-title">
-							<span class="text-nowrap">
-								<span class="font-weight-bold" style="color: #ff9900">₿kit</span><span style="color: #008fb2">.ee</span>
-							</span>
-						</h5>
-						<p class="card-text">
-							<span class="text-nowrap">
-								<span class="font-weight-bold" style="color: #ff9900">₿kit</span><span style="color: #008fb2">.ee</span>
-							</span>
-							is an open source project that aims to serve Bitcoin tools to everyone for free.
-						</p>
+						<h5 class="card-title">Bitcoin Wallet Generator</h5>
+						<p class="card-text"><span class="text-danger"><i
+								class="fas fa-exclamation-circle"></i> Caution: </span>Do not use this wallet for actual
+							purposes. All results are logged.</p>
+						<div class="text-center">
+							<button id="generateButton" class="btn btn-primary" type="button" onclick="generate()">
+								<span id="generateSpinner" class="spinner-border spinner-border-sm" role="status"
+									  aria-hidden="true" hidden></span>
+								Generate
+							</button>
+							<table class="table table-sm m-2 text-left" style="word-break: break-all;">
+								<tbody>
+								<tr>
+									<td class="text-nowrap"><i class="fas fa-fw fa-door-closed"></i> Public Address:</td>
+									<td id="publicAddress"></td>
+								</tr>
+								<tr>
+									<td class="text-nowrap"><i class="fas fa-fw fa-key"></i> Private Key:</td>
+									<td id="privateKey"></td>
+								</tr>
+								<tr>
+									<td class="text-nowrap"><i class="fab fa-fw fa-btc"></i> Current Balance:</td>
+									<td id="balance"></td>
+								</tr>
+								<tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -63,7 +80,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
-	<script src="js/header-footer-loader.js" tab="mainTab"></script>
+	<script src="js/header-footer-loader.js" tab="generatorTab"></script>
+	<script src="js/wallet-generator.js"></script>
 
 </body>
 
