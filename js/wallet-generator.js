@@ -3,7 +3,7 @@ function generate() {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "https://cors-anywhere.herokuapp.com/http://api.bkit.ee/createPair",
+		"url": "https://cors-anywhere.herokuapp.com/http://api.btckit.io/createPair",
 		"method": "GET",
 		"headers": {
 			"X-Requested-With": "XMLHttpRequest",
