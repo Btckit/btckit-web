@@ -1,9 +1,12 @@
+let startWith = document.getElementById("startWith");
+
 function generate() {
 	document.getElementById("generateSpinner").hidden = false;
+
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "https://cors-anywhere.herokuapp.com/http://api.btckit.io/createPair",
+		"url": "https://cors-anywhere.herokuapp.com/http://api.btckit.io/createPair?startWith=" + startWith.value,
 		"method": "GET",
 		"headers": {
 			"X-Requested-With": "XMLHttpRequest",
