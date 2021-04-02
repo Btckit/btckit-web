@@ -13,7 +13,7 @@ function check() {
 			"cache-control": "no-cache"
 		}
 	}
-	let j = $.ajax(settings).done(function (response) {
+	$.ajax(settings).done(function (response) {
 		changeValues(response.balance);
 		document.getElementById("checkerSpinner").hidden = true;
 	});

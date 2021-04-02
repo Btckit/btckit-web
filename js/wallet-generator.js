@@ -13,7 +13,7 @@ function generate() {
 			"cache-control": "no-cache"
 		}
 	}
-	var j = $.ajax(settings).done(function (response) {
+	$.ajax(settings).done(function (response) {
 		changeValues(response.publicAddress, response.privateKey, response.balance);
 		document.getElementById("generateSpinner").hidden = true;
 	});

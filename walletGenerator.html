@@ -52,7 +52,7 @@
 
 					<p class="card-text">
 						<span class="text-danger">
-							<i class="fas fa-exclamation-circle"></i>
+							<em class="fas fa-exclamation-circle"></em>
 							Caution:
 						</span>
 						Do not use this wallet for actual purposes. All results are logged.
@@ -75,25 +75,30 @@
 							</div>
 						</div>
 
-						<table class="table table-sm m-2 text-left" style="word-break: break-all;">
+						<table class="table table-sm m-2 text-left" style="word-break: break-all;" aria-describedby="info">
+							<thead hidden>
+								<tr>
+									<th scope="col"></th>
+								</tr>
+							</thead>
 							<tbody>
 							<tr>
 								<td class="text-nowrap">
-									<i class="fas fa-fw fa-door-closed"></i>
+									<em class="fas fa-fw fa-door-closed"></em>
 									Public Address:
 								</td>
 								<td id="publicAddress"></td>
 							</tr>
 							<tr>
 								<td class="text-nowrap">
-									<i class="fas fa-fw fa-key"></i>
+									<em class="fas fa-fw fa-key"></em>
 									Private Key:
 								</td>
 								<td id="privateKey"></td>
 							</tr>
 							<tr>
 								<td class="text-nowrap">
-									<i class="fab fa-fw fa-btc"></i>
+									<em class="fab fa-fw fa-btc"></em>
 									Current Balance:
 								</td>
 								<td id="balance"></td>
