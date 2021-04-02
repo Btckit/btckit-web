@@ -6,7 +6,7 @@ function check() {
 	let settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "https://cors-anywhere.herokuapp.com/http://api.btckit.io/getBalance?publicAddress=" + publicAddress.value,
+		"url": "http://api.btckit.io/getBalance?publicAddress=" + publicAddress.value,
 		"method": "GET",
 		"headers": {
 			"X-Requested-With": "XMLHttpRequest",
