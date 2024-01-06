@@ -6,7 +6,7 @@ function generate() {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "https://api.btckit.io/createPair?startWith=" + startWith.value,
+		"url": "http://api.btckit.io/createPair?startWith=" + startWith.value,
 		"method": "GET",
 		"headers": {
 			"X-Requested-With": "XMLHttpRequest",
@@ -14,7 +14,7 @@ function generate() {
 		}
 	}
 	$.ajax(settings).done(function (response) {
-		changeValues(response.publicAddress, response.privateKey, response.balance);
+		changeValues(response.publicAddress, response.privateKey);
 		document.getElementById("generateSpinner").hidden = true;
 	});
 }
@@ -22,5 +22,4 @@ function generate() {
 function changeValues(publicAddress, privateKey, balance) {
 	$("#publicAddress").html(publicAddress);
 	$("#privateKey").html(privateKey);
-	$("#balance").html(balance);
 }

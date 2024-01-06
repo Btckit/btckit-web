@@ -28,38 +28,124 @@
 	<title>Btckit</title>
 </head>
 	<div class="container">
-		<div id="header"></div>
+		<div class="row m-2">
+			<img src="images/logo.png" class="img-fluid" alt="Btckit Title" style="max-height:50px;">
+			<h1 class="ml-1 align-middle">
+		<span class="text-nowrap">
+			<span class="font-weight-bold" style="color: #ff9900;">Btckit</span><span style="color: #008fb2">.io</span>
+		</span>
+			</h1>
+		</div>
 
 		<div class="row m-3">
+			<hr class="my-1">
 			<div class="col-md-12">
 				<div class="card m-1">
 					<div class="card-body">
+
 						<h5 class="card-title">
-							<span class="text-nowrap">
-								<span class="font-weight-bold" style="color: #ff9900">Btckit</span><span style="color: #008fb2">.io</span>
-							</span>
+							Bitcoin Wallet Generator
 						</h5>
+
 						<p class="card-text">
-							<span class="text-nowrap">
-								<span class="font-weight-bold" style="color: #ff9900">Btckit</span><span style="color: #008fb2">.io</span>
-							</span>
-							is an open source project that aims to serve Bitcoin tools to everyone for free.
+						<span class="text-danger">
+							<em class="fas fa-exclamation-circle"></em>
+							Caution:
+						</span>
+							Do not use this wallet for actual purposes. All results are logged.
 						</p>
+
+						<div class="text-center">
+
+							<div class="input-group m-1" style="max-width: 400px;">
+								<div class="input-group-prepend">
+									<span class="input-group-text">1</span>
+								</div>
+								<input id="startWith" type="text" class="form-control"
+									   placeholder="Starting Chars (Opt., Max 5)" maxlength="5">
+								<div class="input-group-append">
+									<button id="generateButton" class="btn btn-primary" type="button" onclick="generate()">
+									<span id="generateSpinner" class="spinner-border spinner-border-sm" role="status"
+										  aria-hidden="true" hidden></span>
+										Generate
+									</button>
+								</div>
+							</div>
+
+							<table class="table table-sm m-2 text-left" style="word-break: break-all;" aria-describedby="info">
+								<thead hidden>
+								<tr>
+									<th scope="col"></th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td class="text-nowrap">
+										<em class="fas fa-fw fa-door-closed"></em>
+										Public Address:
+									</td>
+									<td id="publicAddress"></td>
+								</tr>
+								<tr>
+									<td class="text-nowrap">
+										<em class="fas fa-fw fa-key"></em>
+										Private Key:
+									</td>
+									<td id="privateKey"></td>
+								</tr>
+								<tbody>
+							</table>
+
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div id="footer"></div>
+		<hr class="my-1">
+		<div class="row">
+			<div class="col-md-9">
+			</div>
+			<div class="col-md-3">
+				<table class="table table-sm table-borderless" aria-describedby="footer">
+					<thead>
+					<tr>
+						<th colspan="2" scope="col">
+							<a href="https://ionia.ee" target="_blank" rel="noopener noreferrer">
+								Powered by <img src="https://ionia.ee/images/logo-square.png" class="img-fluid mb-1" alt="Ionia OÜ"
+												style="max-height:24px;"> Ionia OÜ
+							</a>
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td class="h5">🤝</td>
+						<td>
+							<a href="https://ionia.ee/pdf/Ionia-Terms-of-Service.pdf" target="_blank" rel="noopener noreferrer">
+								Terms of Service
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="h5">🔐</td>
+						<td>
+							<a href="https://ionia.ee/pdf/Ionia-Privacy-Policy.pdf" target="_blank" rel="noopener noreferrer">
+								Privacy Policy
+							</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
-	<script src="js/header-footer-loader.js" tab="mainTab"></script>
-	<script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://iclickcdn.com/tag.min.js',4311400,document.body||document.documentElement)</script>
-
+	<script src="js/wallet-generator.js"></script>
 </body>
 
 </html>
