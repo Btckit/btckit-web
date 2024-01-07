@@ -6,7 +6,7 @@ function generate() {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "http://api.btckit.io/createPair?startWith=" + startWith.value,
+		"url": "https://api.btckit.io/createPair?startWith=" + startWith.value,
 		"method": "GET",
 		"headers": {
 			"X-Requested-With": "XMLHttpRequest",
